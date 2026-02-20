@@ -21,11 +21,12 @@
 package v1
 
 import (
+	reflect "reflect"
+	sync "sync"
+
 	proto "github.com/datacommonsorg/mixer/internal/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -258,53 +259,6 @@ func (x *LandingPageCache) GetData() map[string]*proto.ObsTimeSeries {
 		return x.Data
 	}
 	return nil
-}
-
-type BioPageRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Node string `protobuf:"bytes,1,opt,name=node,proto3" json:"node,omitempty"`
-}
-
-func (x *BioPageRequest) Reset() {
-	*x = BioPageRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_v1_page_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BioPageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BioPageRequest) ProtoMessage() {}
-
-func (x *BioPageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_v1_page_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BioPageRequest.ProtoReflect.Descriptor instead.
-func (*BioPageRequest) Descriptor() ([]byte, []int) {
-	return file_v1_page_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *BioPageRequest) GetNode() string {
-	if x != nil {
-		return x.Node
-	}
-	return ""
 }
 
 type PlacePageRequest struct {
